@@ -1,0 +1,46 @@
+﻿<Window x:Class="AWSS3_UEM.Ventanas.Gestor_datos"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AWSS3_UEM"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="525" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="113*"/>
+            <RowDefinition Height="135*"/>
+            <RowDefinition Height="261*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="47*"/>
+            <ColumnDefinition Width="113*"/>
+        </Grid.ColumnDefinitions>
+        <Label x:Name="lblNuevoBKT" Content="Nuevo BUCKET:" HorizontalAlignment="Left" Margin="11,3,0,0" VerticalAlignment="Top" Height="26" Width="93"/>
+        <TextBox x:Name="txtNombreNuevoBucket" Text="" TextWrapping="Wrap" Margin="10,29,10,0" Height="35" VerticalAlignment="Top"/>
+        <Button x:Name="btnCreaBKT" Content="Crear BUCKET" Width="104" Panel.ZIndex="1" Margin="0,69,0,0" HorizontalAlignment="Center" Height="26" VerticalAlignment="Top" Click="btnCreaBKT_Click"/>
+        <DataGrid x:Name="dtGridBKTS" Margin="9,32,9,47" Grid.Row="1" IsReadOnly="True" SelectionChanged="dtGridBKTS_SelectionChangedAsync" AutoGenerateColumns="False" Grid.RowSpan="2">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding BucketName, NotifyOnTargetUpdated=True}" Header="Nombre"/>
+                <DataGridTextColumn Binding="{Binding CreationDate, NotifyOnTargetUpdated=True}" Header="Fecha Alta"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label x:Name="lblListaBKTS" Content="Lista de BUCKETS:" HorizontalAlignment="Left" Margin="11,2,0,0" VerticalAlignment="Top" Height="26" Width="104" Grid.Row="1"/>
+        <Button x:Name="btnEliminaBKT" Content="ELiminar BUCKET" Margin="11,0,62,15" VerticalAlignment="Bottom" Height="23" RenderTransformOrigin="0.684,0.47" Grid.Row="2" Click="btnEliminaBKT_Click"/>
+        <DataGrid x:Name="dtGridOBJS" Margin="18,29,18,22" Grid.Column="1" Grid.RowSpan="2" IsReadOnly="True" SelectionChanged="dtGridOBJS_SelectionChanged" AutoGenerateColumns="False" MouseDoubleClick="dtGridOBJS_MouseDoubleClick">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Key, NotifyOnTargetUpdated=True}" Header="Nombre"/>
+                <DataGridTextColumn Binding="{Binding LastModified, NotifyOnTargetUpdated=True}" Header="Fecha Alta"/>
+                <DataGridTextColumn Binding="{Binding Size, NotifyOnTargetUpdated=True}" Header="Tamaño"/>
+                <DataGridTextColumn Binding="{Binding ETag, NotifyOnTargetUpdated=True}" Header="ETag"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label x:Name="lblListaOBJS" Content="Lista IMAGENES del BUCKET:" HorizontalAlignment="Left" Margin="19,3,0,0" VerticalAlignment="Top" Grid.Column="1" Height="26" Width="171"/>
+        <Button x:Name="btnEliminaOBJ" Content="Eliminar IMAGEN" HorizontalAlignment="Right" Margin="0,0,17,15" VerticalAlignment="Bottom" Width="162" Height="23" RenderTransformOrigin="0.684,0.47" Grid.Column="1" Grid.Row="2" Click="btnEliminaOBJ_Click"/>
+        <Button x:Name="btnAltaOBJ" Content="Nueva IMAGEN" HorizontalAlignment="Left" Margin="19,0,0,15" VerticalAlignment="Bottom" Width="162" Height="23" RenderTransformOrigin="0.684,0.47" Grid.Column="1" Grid.Row="2" Click="btnAltaOBJ_Click"/>
+        <DataGrid x:Name="dtGridMetadata" Margin="19,24,17,47" Grid.Column="1" IsReadOnly="True" Grid.Row="2"/>
+        <Label x:Name="lblListaOBJS_Copy" Content="METADATA del objeto:" HorizontalAlignment="Left" Margin="19,1,0,0" VerticalAlignment="Top" Grid.Column="1" Height="24" Width="171" Grid.Row="2"/>
+        <Label x:Name="lblinfoDblClick" Content="Doble click para abrir la imagen" HorizontalAlignment="Center" Grid.Column="1" Width="188" Grid.Row="1" Height="23" VerticalAlignment="Bottom" Margin="0,0,0,1"/>
+
+    </Grid>
+</Window>

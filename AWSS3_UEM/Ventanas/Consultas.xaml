@@ -1,0 +1,55 @@
+﻿<Window x:Class="AWSS3_UEM.Ventanas.Consultas"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AWSS3_UEM.Ventanas"
+        mc:Ignorable="d"
+        Title="Filtros" Height="357" Width="956" ResizeMode="NoResize">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="197*"/>
+            <ColumnDefinition Width="185*"/>
+            <ColumnDefinition Width="200*"/>
+            <ColumnDefinition Width="174*"/>
+            <ColumnDefinition Width="200*"/>
+        </Grid.ColumnDefinitions>
+        <Label x:Name="lblBKT" Content="FÁBRICA:" HorizontalAlignment="Left" Height="29" Margin="10,7,0,0" VerticalAlignment="Top" Width="120"/>
+        <DataGrid x:Name="dtGridFabrica" Margin="10,29,14,93" IsReadOnly="True" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding BucketName, NotifyOnTargetUpdated=True}" Header="Nombre"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label x:Name="lblLinea" Content="LÍNEA:" HorizontalAlignment="Left" Height="29" Margin="4,4,0,0" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
+        <DataGrid x:Name="dtGridLinea" Margin="4,26,9,96" IsReadOnly="True" AutoGenerateColumns="False" Grid.Column="1">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Nombre, NotifyOnTargetUpdated=True}" Header="Nombre"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label x:Name="lblEstacion" Content="ESTACIÓN:" HorizontalAlignment="Left" Height="29" Margin="6,4,0,0" VerticalAlignment="Top" Width="120" Grid.Column="2"/>
+        <DataGrid x:Name="dtGridEstacion" Margin="6,26,13,96" IsReadOnly="True" MouseDoubleClick="dtGridEstacion_MouseDoubleClick" AutoGenerateColumns="False" Grid.Column="2">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Marca, NotifyOnTargetUpdated=True}" Header="Marca"/>
+                <DataGridTextColumn Binding="{Binding Nombre, NotifyOnTargetUpdated=True}" Header="Nombre"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label x:Name="lblResultado" Content="RESULTADO:" HorizontalAlignment="Left" Height="29" Margin="7,0,0,0" VerticalAlignment="Top" Width="120" Grid.Column="4"/>
+        <DataGrid x:Name="dtGridResultado" Margin="7,26,21,96" IsReadOnly="True" MouseDoubleClick="dtGridResultado_MouseDoubleClick" Grid.Column="4"/>
+        <DatePicker x:Name="dtPickerInicio" Margin="92,0,0,52" Height="28" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="131" Grid.ColumnSpan="2"/>
+        <DatePicker x:Name="dtPickerFin" Margin="92,0,0,19" Height="28" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="131" Grid.ColumnSpan="2"/>
+        <Label x:Name="lblFechaInicio" Content="Fecha Inicio:" HorizontalAlignment="Left" Margin="10,0,0,52" Width="80" Height="26" VerticalAlignment="Bottom"/>
+        <Label x:Name="lblFechaFin" Content="Fecha Fin:" HorizontalAlignment="Left" Margin="10,0,0,25" VerticalAlignment="Bottom" Width="80" Height="26"/>
+        <Label x:Name="lblHoraInicio" Content="Hora Inicio:" HorizontalAlignment="Center" Margin="0,263,0,0" Width="80" Height="26" VerticalAlignment="Top" Grid.Column="1"/>
+        <Label x:Name="lblHoraFin" Content="Hora Fin:" HorizontalAlignment="Center" Margin="0,290,0,0" VerticalAlignment="Top" Width="80" Grid.Column="1" Height="26"/>
+        <TextBox x:Name="txtHoraInicio" HorizontalAlignment="Left" Height="21" Margin="139,0,0,52" TextWrapping="Wrap" Text="07:00" VerticalAlignment="Bottom" Width="45" Grid.Column="1"/>
+        <TextBox x:Name="txtHoraFin" HorizontalAlignment="Left" Height="22" Margin="139,0,0,27" TextWrapping="Wrap" Text="23:00" VerticalAlignment="Bottom" Width="45" Grid.Column="1"/>
+        <Button x:Name="btnBuscar" Content="BUSCAR" HorizontalAlignment="Left" Margin="97,0,0,19" Width="90" Click="btnBuscar_ClickAsync" Height="59" VerticalAlignment="Bottom" Grid.Column="4"/>
+        <DataGrid x:Name="dtGridProceso" Margin="5,26,10,96" IsReadOnly="True" AutoGenerateColumns="False" Grid.Column="3" MouseDoubleClick="dtGridProceso_MouseDoubleClick">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Marca, NotifyOnTargetUpdated=True}" Header="Marca"/>
+                <DataGridTextColumn Binding="{Binding Nombre, NotifyOnTargetUpdated=True}" Header="Nombre"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label x:Name="lblProceso" Content="PROCESO:" HorizontalAlignment="Left" Height="29" Margin="5,4,0,0" VerticalAlignment="Top" Width="120" Grid.Column="3"/>
+    </Grid>
+</Window>
